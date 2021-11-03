@@ -1,12 +1,13 @@
 package fr.rmdcoding.handheld_mobile_kotlin.ViewModel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import fr.rmdcoding.handheld_mobile_kotlin.Model.Entity.Tarif
 import fr.rmdcoding.handheld_mobile_kotlin.Model.Repository.RepositoryTarif
 import kotlinx.coroutines.launch
 
-class TarifVM(private val repositoryTarif: RepositoryTarif) : ViewModel() {
+class TarifViewModel(private val repositoryTarif: RepositoryTarif) : ViewModel() {
 
     val tarifs = repositoryTarif.listTarifs
     fun insert(tarif: Tarif) = viewModelScope.launch {
@@ -29,5 +30,13 @@ class TarifVM(private val repositoryTarif: RepositoryTarif) : ViewModel() {
         val tarif = repositoryTarif.findByContent(content)
     }
 
+}
 
+class TarifVMFactory(private val repositoryTarif: RepositoryTarif) :
+    ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(TarifViewModel::class.java))
+            return TarifViewModel(repositoryTarif) as T
+        throw IllegalArgumentException("class ViewMolde inconnue  ")
+    }
 }
