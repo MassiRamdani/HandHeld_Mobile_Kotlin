@@ -4,11 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import fr.rmdcoding.handheld_mobile_kotlin.Model.Dao.TarifDao
 
 import fr.rmdcoding.handheld_mobile_kotlin.Model.Entity.Tarif
+import fr.rmdcoding.handheld_mobile_kotlin.Utils.Converters
 
-@Database(entities = [Tarif::class], version = 1)
+@Database(entities = [Tarif::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class AppDataBase : RoomDatabase() {
     abstract val tarifDao: TarifDao
 

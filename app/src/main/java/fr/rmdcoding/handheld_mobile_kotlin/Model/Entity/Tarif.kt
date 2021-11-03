@@ -10,6 +10,8 @@ data class Tarif(
     @PrimaryKey
     var id: Int,
     var content: String,
-    var created_at: Date,
-    var updated_at: Date
+
+    var created_at: Date?,
+
+    var updated_at: Date?
 )
