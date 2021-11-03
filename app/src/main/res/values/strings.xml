@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">HandHeld_Mobile_Kotlin</string>
+    <!-- Jours de la semaine-->
+    <string name="MONDAY">Lundi</string>
+    <string name="TUESDAY">Mardi</string>
+    <string name="WEDNESDAY">Mercredi</string>
+    <string name="THURSDAY">Jeudi</string>
+    <string name="FRIDAY">Vendredi</string>
+    <string name="SATURDAY">Samedi</string>
+    <string name="SUNDAY">Dimanche</string>
+
+    <!-- Activite des clients et fournisseurs-->
+    <string name="commercant">Commerçant</string>
+    <string name="grossiste">Grossiste</string>
+
+    <!-- Mode de paiment-->
+    <string name="carte">Carte</string>
+    <string name="espece">espèce</string>
+    <string name="cheque">Chèque</string>
+    <string name="versement">Vérsement</string>
+    <string name="virement">virement</string>
+
+    <!-- Type Produit-->
+    <string name="produit">Produit</string>
+    <string name="prestation">Prestation</string>
+    <string name="emballage">Emballage</string>
+
 </resources>

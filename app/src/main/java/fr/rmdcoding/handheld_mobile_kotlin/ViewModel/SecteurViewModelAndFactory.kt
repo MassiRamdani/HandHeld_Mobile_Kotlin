@@ -32,6 +32,7 @@ class SecteurViewModel(private val repositorySecteur: RepositorySecteur) : ViewM
 
     fun getSecteurWithClients() = viewModelScope.launch {
         val secteurs = repositorySecteur.getSecteuWithClients()
+
     }
 
 
