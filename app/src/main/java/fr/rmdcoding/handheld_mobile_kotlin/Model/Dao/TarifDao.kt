@@ -3,6 +3,7 @@ package fr.rmdcoding.handheld_mobile_kotlin.Model.Dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import fr.rmdcoding.handheld_mobile_kotlin.Model.Entity.Tarif
+import fr.rmdcoding.handheld_mobile_kotlin.Model.Entity.TarifWithClient
 
 @Dao
 interface TarifDao {
@@ -25,5 +26,12 @@ interface TarifDao {
     @Query("SELECT * FROM Tarif")
     fun getAllTarif(): LiveData<List<Tarif>>
 
+    //on ajout transaction car room a besoin d'executé 2 requete
+    @Transaction
+    @Query("SELECT * FROM Tarif")
+    fun getTarifWithClient(): List<TarifWithClient>
 
+    @Transaction
+    @Query("SELECT * FROM Tarif where tarifId=:id")
+    fun getTarifWithClientById(id: Int): List<TarifWithClient>
 }
